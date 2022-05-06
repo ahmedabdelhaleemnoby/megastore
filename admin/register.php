@@ -27,20 +27,29 @@ include("inc/connect.php");
                 $password = $_POST["password"];
                 $cPassword = $_POST["cpassword"];
                 $hash = md5($password);
+                connect();
                 if (empty($username)) {
                     $error = "please enter your username";
                 } elseif (empty($email)) {
                     $error = "please enter your email";
                 } elseif (empty($password)) {
                     $error = "please enter your password";
-                } elseif (empty($cpassword)) {
+                } elseif ($password < 6) {
+                    $error = "please enter your password 6 chars";
+                } elseif (empty($cPassword)) {
                     $error = "please enter your confirm password";
-                };
+                } elseif ($password != $cPassword) {
+                    $error = "please enter your password equal confirm password";
+                } else {
+                    $insert = mysqli_query($con, "INSERT INTO admin (username , email, password) VALUE ('$username','$email','$hash')");
+
+                    mysqli_close($con);
+                }
             }
             ?>
             <h1 class="sign-up__title">Get started</h1>
             <p class="sign-up__subtitle">Start creating the best possible user experience for you customers</p>
-            <form class="sign-up-form form" action="inc/addcon.php" method="post">
+            <form class="sign-up-form form" action="" method="post">
                 <label class="form-label-wrapper">
 
                     <?php if (isset($error)) {
