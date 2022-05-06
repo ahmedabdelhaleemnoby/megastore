@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 include("inc/connect.php");
+session_start();
 ?>
 
 <head>
