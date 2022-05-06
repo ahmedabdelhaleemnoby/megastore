@@ -30,13 +30,17 @@ include("inc/connect.php");
                 if (empty($username)) {
                     $error = "please enter your username";
                 } elseif (empty($email)) {
-                    $error = "please enter your Password";
+                    $error = "please enter your email";
+                } elseif (empty($password)) {
+                    $error = "please enter your password";
+                } elseif (empty($cpassword)) {
+                    $error = "please enter your confirm password";
                 };
             }
             ?>
             <h1 class="sign-up__title">Get started</h1>
             <p class="sign-up__subtitle">Start creating the best possible user experience for you customers</p>
-            <form class="sign-up-form form" action="" method="post">
+            <form class="sign-up-form form" action="inc/addcon.php" method="post">
                 <label class="form-label-wrapper">
 
                     <?php if (isset($error)) {
