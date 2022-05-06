@@ -200,7 +200,7 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
                             <ul class="lang-menu dropdown">
                                 <li><a href="##">English</a></li>
                                 <li><a href="##">French</a></li>
-                                <li><a href="##">Uzbek</a></li>
+                                <li><a href="##">Arabic</a></li>
                             </ul>
                         </div>
                         <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
