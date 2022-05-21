@@ -42,7 +42,7 @@ include("inc/connect.php");
                     $error = "please enter your password equal confirm password";
                 } else {
                     $insert = mysqli_query($con, "INSERT INTO admin (username , email, password) VALUE ('$username','$email','$hash')");
-
+                    header('location:login.php');
                     mysqli_close($con);
                 }
             }
