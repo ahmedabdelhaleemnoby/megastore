@@ -38,7 +38,7 @@
     } else {
     ?>
         <div class="row">
-            <table class="table table-striped ol-md-8">
+            <table class="table table-dark table-striped col-md-12">
                 <tr>
                     <th>#</th>
                     <th>user name</th>
@@ -46,29 +46,28 @@
                     <th>Actions</th>
                 </tr>
                 <?php
+
                 $select = mysqli_query($con, "SELECT * FROM admin");
                 while ($user = mysqli_fetch_array($select)) {
-                ?>
-                    <tr>
-                        <td><?= $user['id']  ?></td>
-                        <td><?= $user['username'] ?></td>
-                        <td><?= $user['email']  ?></td>
-                        <td> <a class="btn btn-primary" href="?edit&id=<?= $user['id'] ?>">Edit</a> <a class="btn btn-danger" href="delete.php?id=<?= $user['id'] ?>">Delete</a> </td>
-                        <!--    <td>
-                            <div class='dropdown'>
-                                <a class='btn btn-secondary dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>
-                                    <i class='fa-solid fa-gear'></i>
-                                </a>
+                    echo
+                    "<tr>" .
+                        "<td>" . $user['id'] . "</td>" .
+                        "<td>" . $user['username'] . "</td>" .
+                        "<td>" . $user['email'] . "</td>" .
+                        "<td>
+                        <div class='dropdown'>
+  <a class='btn btn-secondary dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>
+  <i class='fa-solid fa-gear'></i>
+  </a>
 
-                                <ul class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
-                                    <li><a class='dropdown-item' href='?edit=$user[username]'>Edit</a></li>
-                                    <li><a class='dropdown-item' href='delete.php?user=$user[username]'>Delete</a></li>
-
-                                </ul>
-                            </div>
-                        </td> -->
-                    </tr>
-                <?php
+  <ul class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
+    <li><a class='dropdown-item' href='?edit=$user[username]'>Edit</a></li>
+    <li><a class='dropdown-item' href='delete.php?user=$user[username]'>Delete</a></li>
+    
+  </ul>
+</div>
+                        </td>" .
+                        "</tr>";
                 }
                 ?>
             </table>

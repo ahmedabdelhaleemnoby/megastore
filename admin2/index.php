@@ -317,11 +317,6 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
 
             <?php
                 include('inc/admins/list.php');
-            } elseif (isset($_GET['edit'])) {
-            ?>
-
-            <?php
-                include('inc/admins/edit.php');
             } else {
 
 
