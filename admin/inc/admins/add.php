@@ -20,19 +20,31 @@
                 $error = "please enter your password";
             } elseif (empty($cPassword)) {
                 $error = "please enter your confirmed Password";
+            } elseif (strlen($password) < 6) {
+                $error = "please enter more than 6 char";
             } elseif ($cPassword != $password) {
                 $error = "please enter your check your Password";
             } elseif ($cPassword != $password) {
                 $error = "please enter your check your Password";
             } else {
                 connect();
-                $insert = mysqli_query($con, "INSERT INTO admin (username,email,password) 
+                $select_user = mysqli_query($con, "SELECT username FROM admin WHERE username='$username'");
+                $select_email = mysqli_query($con, "SELECT email FROM admin WHERE email='$email'");
+                $count_user = mysqli_num_rows($select_user);
+                $count_mail = mysqli_num_rows($select_email);
+                if ($count_user > 0) {
+                    $error = "username is exist";
+                } elseif ($count_mail > 0) {
+                    $error = "email is already sign";
+                } else {
+                    $insert = mysqli_query($con, "INSERT INTO admin (username,email,password) 
                         VALUES ('$username','$email','$hash')") or die(mysqli_error($con));
-                mysqli_close($con);
-                // close connection
+                    mysqli_close($con);
+                    // close connection
 
-                if ($insert) {
-                    $success = "Admin Success added";
+                    if ($insert) {
+                        $success = "Admin Success added";
+                    };
                 }
             };
         };
