@@ -65,7 +65,7 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
                                     <a href="?add_admin">Add Admin</a>
                                 </li>
                                 <li>
-                                    <a href="users-02.html">Admins</a>
+                                    <a href="?admin_list">Admins</a>
                                 </li>
                             </ul>
                         </li>
@@ -290,7 +290,7 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
                             <ul class="users-item-dropdown nav-user-dropdown dropdown">
                                 <li><a href="##">
                                         <i data-feather="user" aria-hidden="true"></i>
-                                        <span><?php echo isset($_SESSION['username']) ?  $_SESSION['username'] : "welcom" ?></span>
+                                        <span><?php echo isset($_SESSION['username']) ?  $_SESSION['username'] : "welcome" ?></span>
                                     </a></li>
                                 <li><a href="##">
                                         <i data-feather="settings" aria-hidden="true"></i>
@@ -312,6 +312,11 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
 
             <?php
                 include('inc/admins/add.php');
+            } elseif (isset($_GET['admin_list'])) {
+            ?>
+
+            <?php
+                include('inc/admins/list.php');
             } else {
 
 
