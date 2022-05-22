@@ -53,7 +53,7 @@
                         <td><?= $user['id']  ?></td>
                         <td><?= $user['username'] ?></td>
                         <td><?= $user['email']  ?></td>
-                        <td> <a class="btn btn-primary" href="?edit&id=<?= $user['id'] ?>">Edit</a> <a class="btn btn-danger" href="delete.php?id=<?= $user['id'] ?>">Delete</a> </td>
+                        <td> <a class="btn btn-primary" href="?edit&id=<?= $user['id'] ?>">Edit</a> <a class="btn btn-danger" href="inc/admins/delete.php?id=<?= $user['id'] ?>">Delete</a> </td>
                         <!--    <td>
                             <div class='dropdown'>
                                 <a class='btn btn-secondary dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>
