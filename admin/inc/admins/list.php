@@ -38,7 +38,7 @@
     } else {
     ?>
         <div class="row">
-            <table class="table table-striped ol-md-8">
+            <table class="table table-success table-striped">
                 <tr>
                     <th>#</th>
                     <th>user name</th>
@@ -61,8 +61,8 @@
                                 </a>
 
                                 <ul class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
-                                    <li><a class='dropdown-item' href='?edit=$user[username]'>Edit</a></li>
-                                    <li><a class='dropdown-item' href='delete.php?user=$user[username]'>Delete</a></li>
+                                    <li><a class='dropdown-item' href='?edit&id=<?= $user['id'] ?>'>Edit</a></li>
+                                    <li><a class='dropdown-item' inc/admins/delete.php?id=<?= $user['id'] ?>'>Delete</a></li>
 
                                 </ul>
                             </div>

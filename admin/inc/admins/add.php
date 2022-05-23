@@ -1,7 +1,7 @@
 <div class="container">
 
     <div class="row">
-        <h1 class="text-white mt-4 mb-4">Add Admin</h1>
+        <h1 class="text-success mt-4 mb-4">Add Admin</h1>
     </div>
     <form action="" method="post">
         <?php
