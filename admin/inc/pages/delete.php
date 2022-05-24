@@ -14,12 +14,15 @@
 //     echo mysqli_error($con);
 // }
 // mysqli_close($con);
+
+
 include('../connect.php');
 connect();
-$user = $_GET['id'];
-$delete = mysqli_query($con, "DELETE  from admin WHERE id='$user'");
+$id = $_GET['id'];
+// var_dump($id);
+$delete = mysqli_query($con, "DELETE  from pages WHERE id='$id'");
 ?>
 <div class="row">
     <div class="alert col-md-12 alert-success">User Deleted Successfully</div>
 </div>
-<meta http-equiv="refresh" content="1;url=../../index.php?admin_list">
+<meta http-equiv="refresh" content="1;url=../../index.php?pages">

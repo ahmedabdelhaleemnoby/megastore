@@ -63,10 +63,27 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
                             </a>
                             <ul class="cat-sub-menu">
                                 <li>
-                                    <a href="?add_admin">Add Admin</a>
+                                    <a href="?admin_list">Admins</a>
                                 </li>
                                 <li>
-                                    <a href="?admin_list">Admins</a>
+                                    <a href="?add_admin">Add Admin</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="show-cat-btn" href="##">
+                                <span class="icon paper" aria-hidden="true"></span>Pages
+                                <span class="category__btn transparent-btn" title="Open list">
+                                    <span class="sr-only">Open list</span>
+                                    <span class="icon arrow-down" aria-hidden="true"></span>
+                                </span>
+                            </a>
+                            <ul class="cat-sub-menu">
+                                <li>
+                                    <a href="?pages">All pages</a>
+                                </li>
+                                <li>
+                                    <a href="?add_page">Add new page</a>
                                 </li>
                             </ul>
                         </li>
@@ -118,23 +135,7 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a class="show-cat-btn" href="##">
-                                <span class="icon paper" aria-hidden="true"></span>Pages
-                                <span class="category__btn transparent-btn" title="Open list">
-                                    <span class="sr-only">Open list</span>
-                                    <span class="icon arrow-down" aria-hidden="true"></span>
-                                </span>
-                            </a>
-                            <ul class="cat-sub-menu">
-                                <li>
-                                    <a href="pages.html">All pages</a>
-                                </li>
-                                <li>
-                                    <a href="new-page.html">Add new page</a>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li>
                             <a href="comments.html">
                                 <span class="icon message" aria-hidden="true"></span>
@@ -323,6 +324,21 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
 
             <?php
                 include('inc/admins/edit.php');
+            } elseif (isset($_GET['add_page'])) {
+            ?>
+
+            <?php
+                include('inc/pages/add.php');
+            } elseif (isset($_GET['pages'])) {
+            ?>
+
+            <?php
+                include('inc/pages/list.php');
+            } elseif (isset($_GET['editp'])) {
+            ?>
+
+            <?php
+                include('inc/pages/edit.php');
             } else {
 
 
