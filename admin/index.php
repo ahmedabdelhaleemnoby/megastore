@@ -319,7 +319,7 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
 
             <?php
                 include('inc/admins/list.php');
-            } elseif (isset($_GET['edit'])) {
+            } elseif (isset($_GET['edit_admin'])) {
             ?>
 
             <?php
@@ -334,15 +334,12 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
 
             <?php
                 include('inc/pages/list.php');
-            } elseif (isset($_GET['editp'])) {
+            } elseif (isset($_GET['edit_page'])) {
             ?>
 
             <?php
                 include('inc/pages/edit.php');
             } else {
-
-
-
 
             ?>
                 <main class="main users chart-page" id="skip-target">

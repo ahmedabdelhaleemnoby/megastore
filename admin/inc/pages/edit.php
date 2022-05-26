@@ -1,7 +1,7 @@
 <?php
 connect();
 
-if (isset($_GET['editp'])) {
+if (isset($_GET['edit_page'])) {
 
     $id = $_GET['id'];
 
@@ -25,7 +25,7 @@ if (isset($_GET['editp'])) {
     ?>
 
 
-    <h1>Edit <?php echo $_GET['editp']; ?></h1>
+    <h1>Edit <?php echo $_GET['edit_page']; ?></h1>
     <form action="" method="post">
         <input type="text" class="form-control mb-2" name="tittle" placeholder="tittle" value="<?php echo $my_id['tittle']; ?>">
         <div class="form-floating">
