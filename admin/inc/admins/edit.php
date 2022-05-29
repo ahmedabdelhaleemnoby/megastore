@@ -18,14 +18,14 @@ if (isset($_POST['email'])) {
     }
 }
 $select_user = mysqli_query($con, "SELECT * FROM admin WHERE id='$id'");
-$user = mysqli_fetch_array($select_user);
+$aaaa = mysqli_fetch_array($select_user);
 ?>
 
 
 <h1>Edit <?php echo $_GET['edit_admin']; ?></h1>
 <form action="" method="post">
-    <input type="text" class="form-control mb-2" name="username" placeholder="Username" value="<?php echo $user['username']; ?>">
-    <input type="email " class=" form-control mb-2" name="email" placeholder="email" value="<?php echo $user['email']; ?>">
+    <input type="text" class="form-control mb-2" name="username" placeholder="Username" value="<?php echo $aaaa['username']; ?>">
+    <input type="email " class=" form-control mb-2" name="email" placeholder="email" value="<?php echo $aaaa['email']; ?>">
 
 
     <button type="submit" class=" form-control ">Save</button>

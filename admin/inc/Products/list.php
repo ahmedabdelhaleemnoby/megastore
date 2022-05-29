@@ -60,11 +60,11 @@
                     <tr>
                         <td><?= $user['id']  ?></td>
                         <td><?= $user['name'] ?></td>
-                        <td><?= $user['price'] ?> $</td>
+                        <td><?= $user['price'] ?>$</td>
                         <td><?= $user['description'] ?></td>
                         <td><?= $user['discount'] ?></td>
                         <td><?= $user['quantity'] ?></td>
-                        <td><?= $total ?> $</td>
+                        <td><?= $total ?>$</td>
                         <td> <a class="btn btn-primary" href="?edit_Product&id=<?= $user['id'] ?>">Edit</a> <a class="btn btn-danger" href="inc/product/delete.php?id=<?= $user['id'] ?>">Delete</a> </td>
                         <!--    <td>
                             <div class='dropdown'>
