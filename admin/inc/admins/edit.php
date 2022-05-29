@@ -11,6 +11,8 @@ if (isset($_POST['email'])) {
 ?>
         <div class="row">
             <div class="alert col-md-12 alert-success">User Updated Successfully</div>
+            <meta http-equiv="refresh" content="1;url=?admin_list">
+
         </div>
 <?php
     }

@@ -2,9 +2,9 @@
     <?php
     connect();
 
-    if (isset($_GET['edit'])) {
+    if (isset($_GET['edit_admin'])) {
 
-        $username = $_GET['edit'];
+        $username = $_GET['edit_admin'];
 
 
         if (isset($_POST['email'])) {
@@ -24,7 +24,7 @@
         ?>
 
 
-        <h1>Edit <?php echo $_GET['edit']; ?></h1>
+        <h1>Edit <?php echo $_GET['edit_admin']; ?></h1>
         <form action="" method="post">
             <input type="text" class="form-control mb-2" name="username" placeholder="username" value="<?php echo $user['username']; ?>">
             <input type="email " class=" form-control mb-2" name="email" placeholder="email" value="<?php echo $user['email']; ?>">
@@ -53,7 +53,7 @@
                         <td><?= $user['id']  ?></td>
                         <td><?= $user['username'] ?></td>
                         <td><?= $user['email']  ?></td>
-                        <td> <a class="btn btn-primary" href="?edit&id=<?= $user['id'] ?>">Edit</a> <a class="btn btn-danger" href="inc/admins/delete.php?id=<?= $user['id'] ?>">Delete</a> </td>
+                        <td> <a class="btn btn-primary" href="?edit_admin&id=<?= $user['id'] ?>">Edit</a> <a class="btn btn-danger" href="inc/admins/delete.php?id=<?= $user['id'] ?>">Delete</a> </td>
                         <!--    <td>
                             <div class='dropdown'>
                                 <a class='btn btn-secondary dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>

@@ -89,7 +89,7 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
                         </li>
                         <li>
                             <a class="show-cat-btn" href="##">
-                                <span class="icon document" aria-hidden="true"></span>Posts
+                                <span class="icon image" aria-hidden="true"></span>Media
                                 <span class="category__btn transparent-btn" title="Open list">
                                     <span class="sr-only">Open list</span>
                                     <span class="icon arrow-down" aria-hidden="true"></span>
@@ -97,10 +97,10 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
                             </a>
                             <ul class="cat-sub-menu">
                                 <li>
-                                    <a href="posts.html">All Posts</a>
+                                    <a href="?slider">View images</a>
                                 </li>
                                 <li>
-                                    <a href="new-post.html">Add new post</a>
+                                    <a href="?add_slider">Add image</a>
                                 </li>
                             </ul>
                         </li>
@@ -114,10 +114,31 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
                             </a>
                             <ul class="cat-sub-menu">
                                 <li>
-                                    <a href="categories.html">All categories</a>
+                                    <a href="?category">View categories</a>
+                                </li>
+                                <li>
+                                    <a href="?add_category">Add category</a>
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a class="show-cat-btn" href="##">
+                                <span class="icon document" aria-hidden="true"></span>Products
+                                <span class="category__btn transparent-btn" title="Open list">
+                                    <span class="sr-only">Open list</span>
+                                    <span class="icon arrow-down" aria-hidden="true"></span>
+                                </span>
+                            </a>
+                            <ul class="cat-sub-menu">
+                                <li>
+                                    <a href="?Product">All Products</a>
+                                </li>
+                                <li>
+                                    <a href="?add_Product">Add Product</a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li>
                             <a class="show-cat-btn" href="##">
                                 <span class="icon image" aria-hidden="true"></span>Media
@@ -339,6 +360,51 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
 
             <?php
                 include('inc/pages/edit.php');
+            } elseif (isset($_GET['add_slider'])) {
+            ?>
+
+            <?php
+                include('inc/sliders/add.php');
+            } elseif (isset($_GET['slider'])) {
+            ?>
+
+            <?php
+                include('inc/sliders/list.php');
+            } elseif (isset($_GET['edit_slider'])) {
+            ?>
+
+            <?php
+                include('inc/sliders/edit.php');
+            } elseif (isset($_GET['add_category'])) {
+            ?>
+
+            <?php
+                include('inc/categories/add.php');
+            } elseif (isset($_GET['category'])) {
+            ?>
+
+            <?php
+                include('inc/categories/list.php');
+            } elseif (isset($_GET['edit_category'])) {
+            ?>
+
+            <?php
+                include('inc/categories/edit.php');
+            } elseif (isset($_GET['add_Product'])) {
+            ?>
+
+            <?php
+                include('inc/Products/add.php');
+            } elseif (isset($_GET['Product'])) {
+            ?>
+
+            <?php
+                include('inc/Products/list.php');
+            } elseif (isset($_GET['edit_Product'])) {
+            ?>
+
+            <?php
+                include('inc/Products/edit.php');
             } else {
 
             ?>

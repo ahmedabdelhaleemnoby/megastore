@@ -2,9 +2,9 @@
     <?php
     connect();
 
-    if (isset($_GET['edit'])) {
+    if (isset($_GET['edit_category'])) {
 
-        $id = $_GET['edit'];
+        $id = $_GET['edit_category'];
 
 
         if (isset($_POST['tittle'])) {
@@ -24,7 +24,7 @@
         ?>
 
 
-        <h1>Edit <?php echo $_GET['edit']; ?></h1>
+        <h1>Edit <?php echo $_GET['edit_category']; ?></h1>
         <form action="" method="post">
             <input type="text" class="form-control mb-2" name="username" placeholder="username" value="<?php echo $user['username']; ?>">
             <input type="email " class=" form-control mb-2" name="email" placeholder="email" value="<?php echo $user['email']; ?>">
