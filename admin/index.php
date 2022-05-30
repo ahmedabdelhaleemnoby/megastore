@@ -34,7 +34,7 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
         <aside class="sidebar">
             <div class="sidebar-start">
                 <div class="sidebar-head">
-                    <a href="/" class="logo-wrapper" title="Home">
+                    <a href="/megastore/admin/index.php" class="logo-wrapper" title="Home">
                         <span class="sr-only">Home</span>
                         <span class="icon logo" aria-hidden="true"></span>
                         <div class="logo-text">

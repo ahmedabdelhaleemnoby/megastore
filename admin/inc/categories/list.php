@@ -4,13 +4,12 @@
 
     if (isset($_GET['edit_category'])) {
 
-        $id = $_GET['edit_category'];
+        $id = $_GET['id'];
 
 
         if (isset($_POST['tittle'])) {
             $tittle = strtolower($_POST['tittle']);
-            $description = strtolower($_POST['description']);
-            $update = mysqli_query($con, "UPDATE pages SET tittle='$tittle' , description='$description' WHERE id='$id' ");
+            $update = mysqli_query($con, "UPDATE category SET tittle='$tittle' WHERE id='$id' ");
             if ($update) {
     ?>
                 <div class="row">
@@ -42,13 +41,13 @@
                     <th>Actions</th>
                 </tr>
                 <?php
-                $select = mysqli_query($con, "SELECT * FROM pages");
+                $select = mysqli_query($con, "SELECT * FROM category");
                 while ($user = mysqli_fetch_array($select)) {
                 ?>
                     <tr>
                         <td><?= $user['id']  ?></td>
                         <td><?= $user['tittle'] ?></td>
-                        <td> <a class="btn btn-primary" href="?edit_page&id=<?= $user['id'] ?>">Edit</a> <a class="btn btn-danger" href="inc/pages/delete.php?id=<?= $user['id'] ?>">Delete</a> </td>
+                        <td> <a class="btn btn-primary" href="?edit_category&id=<?= $user['id'] ?>">Edit</a> <a class="btn btn-danger" href="inc/categories/delete.php?id=<?= $user['id'] ?>">Delete</a> </td>
                         <!--    <td>
                             <div class='dropdown'>
                                 <a class='btn btn-secondary dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>

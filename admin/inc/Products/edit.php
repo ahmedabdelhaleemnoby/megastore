@@ -27,14 +27,29 @@ if (isset($_GET['edit_Product'])) {
     ?>
 
 
-    <h1>Edit <?php echo $_GET['edit_Product']; ?></h1>
+    <h1 class="text-success mt-4 mb-4 ms-2">Edit <?php echo $_GET['edit_Product']; ?></h1>
     <form action="" method="post">
-        <input type="text" class="form-control mb-2" name="name" placeholder="name product" value="<?php echo $user['name']; ?>">
-        <input type="number " class=" form-control mb-2" name="price" placeholder="Enter price" value="<?php echo $user['price']; ?>">
-        <input type="text " class=" form-control mb-2" name="description" placeholder="Enter description" value="<?php echo $user['description']; ?>">
-        <input type="text " class=" form-control mb-2" name="discount" placeholder="Enter discount" value="<?php echo $user['discount']; ?>">
-        <input type="number " class=" form-control mb-2" name="quantity" placeholder="Enter quantity" value="<?php echo $user['quantity']; ?>">
-        <button type="submit" class=" form-control ">Save</button>
+        <div class="form-group ms-2">
+            <label for="name" class="text-primary">Name Product</label>
+            <input type="text" id="name" class="form-control mb-2 " name="name" placeholder="name product" value="<?php echo $user['name']; ?>">
+        </div>
+        <div class="form-group ms-2">
+            <label for="price" class="text-primary">Enter price</label>
+            <input type="number " id="price" class=" form-control mb-2" name="price" placeholder="Enter price" value="<?php echo $user['price']; ?>">
+        </div>
+        <div class="form-group ms-2">
+            <label for="description" class="text-primary">Enter description</label>
+            <input type="text " id="description" class=" form-control mb-2" name="description" placeholder="Enter description" value="<?php echo $user['description']; ?>">
+        </div>
+        <div class="form-group ms-2">
+            <label for="name" id="discount" class="text-primary">Enter discount</label>
+            <input type="text " id="discount" class=" form-control mb-2" name="discount" placeholder="Enter discount" value="<?php echo $user['discount']; ?>">
+        </div>
+        <div class="form-group ms-2">
+            <label for="name" id="quantity" class="text-primary">Enter quantity</label>
+            <input type="quantity " class=" form-control mb-2" name="quantity" placeholder="Enter quantity" value="<?php echo $user['quantity']; ?>">
+        </div>
+        <button type="submit" class=" form-control btn-success col-md-4 ms-2">Save</button>
 
     </form>
 <?php

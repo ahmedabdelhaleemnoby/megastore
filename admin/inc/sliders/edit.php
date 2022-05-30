@@ -1,37 +1,34 @@
 <?php
 connect();
 
-if (isset($_GET['edit_page'])) {
+if (isset($_GET['edit_slider'])) {
 
     $id = $_GET['id'];
 
 
-    if (isset($_POST['tittle'])) {
-        $tittle = strtolower($_POST['tittle']);
-        $description = strtolower($_POST['area2']);
-        $update = mysqli_query($con, "UPDATE pages SET tittle='$tittle' , description='$description' WHERE id='$id' ");
+    if (isset($_POST['description'])) {
+        $description = strtolower($_POST['description']);
+        $update = mysqli_query($con, "UPDATE image SET description='$description' WHERE id='$id' ");
         if ($update) {
 ?>
             <div class="row">
                 <div class="alert col-md-12 alert-success">User Updated Successfully</div>
-                <meta http-equiv="refresh" content="1;url=?pages">
+                <meta http-equiv="refresh" content="1;url=?slider">
             </div>
     <?php
         }
     }
     // var_dump($id)
-    $select_id = mysqli_query($con, "SELECT * FROM pages WHERE id='$id'");
+    $select_id = mysqli_query($con, "SELECT * FROM image WHERE id='$id'");
     $my_id = mysqli_fetch_array($select_id);
     ?>
 
 
-    <h1>Edit <?php echo $_GET['edit_page']; ?></h1>
+    <h1 class="text-success mt-4 mb-4 ms-2">Edit <?php echo $_GET['edit_slider']; ?></h1>
     <form action="" method="post">
-        <input type="text" class="form-control mb-2" name="tittle" placeholder="tittle" value="<?php echo $my_id['tittle']; ?>">
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a description here" name="area2" id="floatingTextarea2" style="height: 100px"><?php echo $my_id['description']; ?></textarea>
-            <!-- <label for="floatingTextarea2">description</label> -->
-        </div>
+        <input type="file" class="form-control mb-2" name="image" placeholder="tittle" value="<?php echo $my_id['images']; ?>">
+        <input type="text" class="form-control mb-2" name="description" placeholder="tittle" value="<?php echo $my_id['description']; ?>">
+
         <button type="submit" class=" form-control ">Save</button>
 
     </form><?php

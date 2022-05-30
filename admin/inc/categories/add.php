@@ -8,25 +8,22 @@
         if (isset($_POST["tittle"])) {
             connect();
             $tittle = $_POST["tittle"];
-            $description = mysqli_real_escape_string($con, $_POST['area2']);
 
             if (empty($tittle)) {
                 $error = "please enter your tittle";
-            } elseif (empty($description)) {
-                $error = "please enter your description";
             } else {
-                $select_tittle = mysqli_query($con, "SELECT tittle FROM pages WHERE tittle='$tittle'");
+                $select_tittle = mysqli_query($con, "SELECT tittle FROM category WHERE tittle='$tittle'");
                 $count_tittle = mysqli_num_rows($select_tittle);
                 if ($count_tittle > 0) {
                     $error = "tittle is exist";
                 } else {
-                    $insert = mysqli_query($con, "INSERT INTO pages (tittle,description) 
-                        VALUES ('$tittle','$description')") or die(mysqli_error($con));
+                    $insert = mysqli_query($con, "INSERT INTO category (tittle) 
+                        VALUES ('$tittle')") or die(mysqli_error($con));
                     mysqli_close($con);
                     // close connection
 
                     if ($insert) {
-                        $success = "pages Success added";
+                        $success = "category Success added";
                     };
                 }
             };
@@ -60,11 +57,6 @@
 
         <div class="row ">
             <input type="text" name="tittle" class="col-md-10 form-control mb-2 ms-2" placeholder="Enter tittle">
-            <br>
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a description here" name="area2" id="floatingTextarea2" style="height: 200px"></textarea>
-                <!-- <label for="floatingTextarea2">description</label> -->
-            </div>
             <br>
             <button type="submit" class="btn btn-success col-md-2 mb-2 mt-2 ms-2">Add</button>
         </div>

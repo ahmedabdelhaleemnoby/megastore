@@ -38,17 +38,19 @@
             <table class="table table-success table-striped">
                 <tr>
                     <th>#</th>
-                    <th>Tittle</th>
-                    <th>Actions</th>
+                    <th>image</th>
+                    <th>description</th>
+                    <th>Action</th>
                 </tr>
                 <?php
-                $select = mysqli_query($con, "SELECT * FROM pages");
-                while ($user = mysqli_fetch_array($select)) {
+                $select = mysqli_query($con, "SELECT * FROM image");
+                while ($image = mysqli_fetch_array($select)) {
                 ?>
                     <tr>
-                        <td><?= $user['id']  ?></td>
-                        <td><?= $user['tittle'] ?></td>
-                        <td> <a class="btn btn-primary" href="?edit_page&id=<?= $user['id'] ?>">Edit</a> <a class="btn btn-danger" href="inc/pages/delete.php?id=<?= $user['id'] ?>">Delete</a> </td>
+                        <td><?= $image['id']  ?></td>
+                        <td><?= $image['images'] ?></td>
+                        <td><?= $image['description'] ?></td>
+                        <td> <a class="btn btn-primary" href="?edit_slider&id=<?= $image['id'] ?>">Edit</a> <a class="btn btn-danger" href="inc/sliders/delete.php?id=<?= $image['id'] ?>">Delete</a> </td>
                         <!--    <td>
                             <div class='dropdown'>
                                 <a class='btn btn-secondary dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>

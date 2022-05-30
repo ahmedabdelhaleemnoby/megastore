@@ -20,9 +20,9 @@ include('../connect.php');
 connect();
 $id = $_GET['id'];
 // var_dump($id);
-$delete = mysqli_query($con, "DELETE  from pages WHERE id='$id'");
+$delete = mysqli_query($con, "DELETE  from category WHERE id='$id'");
 ?>
 <div class="row">
     <div class="alert col-md-12 alert-success">User Deleted Successfully</div>
 </div>
-<meta http-equiv="refresh" content="1;url=../../index.php?pages">
+<meta http-equiv="refresh" content="1;url=../../index.php?category">
