@@ -25,7 +25,7 @@
 
 
         <h1>Edit <?php echo $_GET['edit']; ?></h1>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <input type="text" class="form-control mb-2" name="username" placeholder="username" value="<?php echo $user['username']; ?>">
             <input type="email " class=" form-control mb-2" name="email" placeholder="email" value="<?php echo $user['email']; ?>">
             <button type="submit" class=" form-control ">Save</button>
@@ -48,7 +48,7 @@
                 ?>
                     <tr>
                         <td><?= $image['id']  ?></td>
-                        <td><?= $image['images'] ?></td>
+                        <td><img src="inc/sliders/upload/<?= $image['images'] ?>" style="width: 50px; hight: 50px;"></td>
                         <td><?= $image['description'] ?></td>
                         <td> <a class="btn btn-primary" href="?edit_slider&id=<?= $image['id'] ?>">Edit</a> <a class="btn btn-danger" href="inc/sliders/delete.php?id=<?= $image['id'] ?>">Delete</a> </td>
                         <!--    <td>

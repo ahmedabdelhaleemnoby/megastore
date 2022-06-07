@@ -3,7 +3,7 @@
     <div class="row">
         <h1 class="text-success mt-4 mb-4">Add images</h1>
     </div>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <?php
         if (isset($_POST["description"])) {
             connect();
@@ -16,18 +16,29 @@
                 if ($count_tittle > 0) {
                     $error = "tittle is exist";
                 } else {
-                    $uploads_dir = $_SERVER['DOCUMENT_ROOT'] . '../../upload';
-                    $avatar = '';
-                    if ($_FILES["image"]['error'] == UPLOAD_ERR_OK) {
-                        $tmp_name = $_FILES["image"]['tmp_name'];
-                        $avatar = basename($_FILES["image"]['name']);
-                        move_uploaded_file($tmp_name, "$uploads_dir/$image");
+                    $name = $_FILES['image']['name'];
+                    $type = $_FILES['image']['type'];
+                    $size = $_FILES['image']['size'];
+                    $errors = $_FILES['image']['error'];
+                    $tmp = $_FILES['image']['tmp_name'];
+                    $result = '';
+                    $chr = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789";
+                    for ($i = 0; $i < 10; $i++) {
+                        $result .= $chr[rand(0, 61)];
+                    }
+                    $cut = explode(".", $name);
+                    $new_name = $cut[0] . "_" . $result . "." . $cut[count($cut) - 1];
+                    $location = dirname(__FILE__) . "/upload/";
+                    $full = $location . $new_name;
+                    if ($errors == UPLOAD_ERR_OK) {
+                        move_uploaded_file($tmp, $full);
+                        $success = "the image is uploaded";
                     } else {
                         $default = "../../upload/nophoto.jpg";
                     }
 
                     $insert = mysqli_query($con, "INSERT INTO image (images,description) 
-                        VALUES ('$avatar','$tittle')") or die(mysqli_error($con));
+                        VALUES ('$new_name','$tittle')") or die(mysqli_error($con));
                     mysqli_close($con);
                     // close connection
 

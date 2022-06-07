@@ -9,6 +9,24 @@ if (isset($_GET['edit_slider'])) {
     if (isset($_POST['description'])) {
         $description = strtolower($_POST['description']);
         $update = mysqli_query($con, "UPDATE image SET description='$description' WHERE id='$id' ");
+        $name = $_FILES['image']['name'];
+        $type = $_FILES['image']['type'];
+        $size = $_FILES['image']['size'];
+        $errors = $_FILES['image']['error'];
+        $tmp = $_FILES['image']['tmp_name'];
+        $result = '';
+        $chr = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789";
+        for ($i = 0; $i < 10; $i++) {
+            $result .= $chr[rand(0, 61)];
+        }
+        $cut = explode(".", $name);
+        $new_name = $cut[0] . "_" . $result . "." . $cut[count($cut) - 1];
+        $location = dirname(__FILE__) . "/upload/";
+        $full = $location . $new_name;
+        if ($errors == UPLOAD_ERR_OK) {
+            move_uploaded_file($tmp, $full);
+            $success = "the image is uploaded";
+        }
         if ($update) {
 ?>
             <div class="row">
@@ -25,7 +43,7 @@ if (isset($_GET['edit_slider'])) {
 
 
     <h1 class="text-success mt-4 mb-4 ms-2">Edit <?php echo $_GET['edit_slider']; ?></h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <input type="file" class="form-control mb-2" name="image" placeholder="tittle" value="<?php echo $my_id['images']; ?>">
         <input type="text" class="form-control mb-2" name="description" placeholder="tittle" value="<?php echo $my_id['description']; ?>">
 
