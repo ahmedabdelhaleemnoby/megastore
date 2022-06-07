@@ -7,12 +7,13 @@ if (isset($_GET['edit_Product'])) {
 
 
     if (isset($_POST['name'])) {
+        $category = $_POST['category'];
         $tittle = strtolower($_POST['name']);
         $price = $_POST["price"];
         $description = strtolower($_POST['description']);
         $discount = $_POST["discount"];
         $quantity =  $_POST["quantity"];
-        $update = mysqli_query($con, "UPDATE product SET name='$tittle',price='$price' , description='$description' ,discount='$discount' , quantity='$quantity'WHERE id='$id' ");
+        $update = mysqli_query($con, "UPDATE product SET category='$category', name='$tittle',price='$price' , description='$description' ,discount='$discount' , quantity='$quantity'WHERE id='$id' ");
         if ($update) {
 ?>
             <div class="row">
@@ -29,6 +30,22 @@ if (isset($_GET['edit_Product'])) {
 
     <h1 class="text-success mt-4 mb-4 ms-2">Edit <?php echo $_GET['edit_Product']; ?></h1>
     <form action="" method="post">
+        <div class="form-group ms-2">
+            <label for="category" class="text-primary">category Product</label><br>
+            <?php
+            connect();
+            $select_cat =  mysqli_query($con, "SELECT * FROM category ");
+            ?>
+            <select name="category" id="category">
+                <option>select category</option>
+                <?php
+                while ($category = mysqli_fetch_array($select_cat)) {
+                ?>
+                    <option value="<?php echo $category['id'] ?>"><?php echo $category['tittle'] ?></option>
+                <?php }
+                mysqli_close($con); ?>
+            </select>
+        </div>
         <div class="form-group ms-2">
             <label for="name" class="text-primary">Name Product</label>
             <input type="text" id="name" class="form-control mb-2 " name="name" placeholder="name product" value="<?php echo $user['name']; ?>">

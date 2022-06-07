@@ -44,6 +44,7 @@
             <table class="table table-success table-striped">
                 <tr>
                     <th>#</th>
+                    <th>category</th>
                     <th>Name Product</th>
                     <th>Price</th>
                     <th>Description</th>
@@ -56,9 +57,12 @@
                 $select = mysqli_query($con, "SELECT * FROM product");
                 while ($user = mysqli_fetch_array($select)) {
                     $total = $user['price'] - $user['discount'];
+                    $select_cat = mysqli_query($con, "SELECT * FROM category WHERE id='$user[category]'");
+                    $category_array = mysqli_fetch_array($select_cat);
                 ?>
                     <tr>
                         <td><?= $user['id']  ?></td>
+                        <td><?= $category_array['tittle']  ?></td>
                         <td><?= $user['name'] ?></td>
                         <td><?= $user['price'] ?>$</td>
                         <td><?= $user['description'] ?></td>
@@ -81,6 +85,7 @@
                         </td> -->
                     </tr>
                 <?php
+
                 }
                 ?>
             </table>

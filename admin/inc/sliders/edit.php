@@ -7,18 +7,7 @@ if (isset($_GET['edit_slider'])) {
 
 
     if (isset($_POST['description'])) {
-        $description = strtolower($_POST['description']);
-        $update = mysqli_query($con, "UPDATE image SET description='$description' WHERE id='$id' ");
-        $name = $_FILES['image']['name'];
-        $type = $_FILES['image']['type'];
-        $size = $_FILES['image']['size'];
-        $errors = $_FILES['image']['error'];
-        $tmp = $_FILES['image']['tmp_name'];
-        $result = '';
-        $chr = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789";
-        for ($i = 0; $i < 10; $i++) {
-            $result .= $chr[rand(0, 61)];
-        }
+
         $cut = explode(".", $name);
         $new_name = $cut[0] . "_" . $result . "." . $cut[count($cut) - 1];
         $location = dirname(__FILE__) . "/upload/";

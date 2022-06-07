@@ -6,6 +6,7 @@
     <form action="" method="post">
         <?php
         if (isset($_POST["name"])) {
+            $category = $_POST["category"];
             $name = $_POST["name"];
             $price = $_POST["price"];
             $description = $_POST["description"];
@@ -27,8 +28,8 @@
                 if ($count_user > 0) {
                     $error = "name is exist";
                 } else {
-                    $insert = mysqli_query($con, "INSERT INTO product (name,price,description,discount,quantity) 
-                        VALUES ('$name','$price','$description','$discount','$quantity')") or die(mysqli_error($con));
+                    $insert = mysqli_query($con, "INSERT INTO product (category,name,price,description,discount,quantity) 
+                        VALUES ('$category','$name','$price','$description','$discount','$quantity')") or die(mysqli_error($con));
                     mysqli_close($con);
                     // close connection
 
@@ -66,6 +67,22 @@
         </div>
 
         <div class="row">
+            <?php
+            connect();
+            $select_cat =  mysqli_query($con, "SELECT * FROM category ");
+            ?>
+            <select name="category">
+                <option>select category</option>
+                <?php
+                while ($category = mysqli_fetch_array($select_cat)) {
+                ?>
+                    <option value="<?php echo $category['id'] ?>"><?php echo $category['tittle'] ?></option>
+                <?php }
+                mysqli_close($con);
+
+                ?>
+            </select>
+            <br>
             <input type="text" name="name" class="col-md-12 form-control mb-2" placeholder="Enter name product">
             <br>
             <input type="number" name="price" class="col-md-12 form-control mb-2" placeholder="Enter price">

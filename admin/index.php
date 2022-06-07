@@ -55,6 +55,20 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
                         </li>
                         <li>
                             <a class="show-cat-btn" href="##">
+                                <span class="icon user-3" aria-hidden="true"></span>Users
+                                <span class="category__btn transparent-btn" title="Open list">
+                                    <span class="sr-only">Open list</span>
+                                    <span class="icon arrow-down" aria-hidden="true"></span>
+                                </span>
+                            </a>
+                            <ul class="cat-sub-menu">
+                                <li>
+                                    <a href="?user_list">Users</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="show-cat-btn" href="##">
                                 <span class="icon user-3" aria-hidden="true"></span>Admins
                                 <span class="category__btn transparent-btn" title="Open list">
                                     <span class="sr-only">Open list</span>
@@ -405,6 +419,11 @@ isset($_SESSION['username']) ? $_SESSION['username'] : header('location:login.ph
 
             <?php
                 include('inc/Products/edit.php');
+            } elseif (isset($_GET['user_list'])) {
+            ?>
+
+            <?php
+                include('inc/users/list.php');
             } else {
 
             ?>
