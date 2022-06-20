@@ -7,13 +7,13 @@
         <?php
         if (isset($_POST["name"])) {
             $category = $_POST["category"];
-            $name = $_POST["name"];
+            $name_pro = $_POST["name"];
             $price = $_POST["price"];
             $description = $_POST["description"];
             $discount = $_POST["discount"];
             $quantity =  $_POST["quantity"];
 
-            if (empty($name)) {
+            if (empty($name_pro)) {
                 $error = "please enter name product";
             } elseif (empty($price)) {
                 $error = "please enter price";
@@ -24,7 +24,7 @@
             } else {
                 connect();
 
-                $select_name = mysqli_query($con, "SELECT name FROM product WHERE name='$name'");
+                $select_name = mysqli_query($con, "SELECT name FROM product WHERE name='$name_pro'");
                 $count_user = mysqli_num_rows($select_name);
                 if ($count_user > 0) {
                     $error = "name is exist";
@@ -50,7 +50,7 @@
                         $default = "../../upload/nophoto.jpg";
                     }
                     $insert = mysqli_query($con, "INSERT INTO product (category,images,name,price,description,discount,quantity) 
-                        VALUES ('$category','$new_name','$name','$price','$description','$discount','$quantity')") or die(mysqli_error($con));
+                        VALUES ('$category','$new_name','$name_pro','$price','$description','$discount','$quantity')") or die(mysqli_error($con));
                     mysqli_close($con);
                     // close connection
 
