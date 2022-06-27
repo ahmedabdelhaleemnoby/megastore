@@ -65,7 +65,7 @@
                         <td><?= $category_array['tittle']  ?></td>
                         <td><?= $user['name'] ?></td>
                         <td><?= $user['price'] ?>$</td>
-                        <td><?= $user['description'] ?></td>
+                        <td><?= substr($user['description'], 0, 50); ?>...</td>
                         <td><?= $user['discount'] ?></td>
                         <td><?= $user['quantity'] ?></td>
                         <td><?= $total ?>$</td>

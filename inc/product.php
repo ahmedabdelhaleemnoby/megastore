@@ -41,7 +41,7 @@
                 <div class="row g-4">
                     <?php
                     if (basename($_SERVER['PHP_SELF']) == "products.php") {
-                        $select_pro = mysqli_query($con, "SELECT * FROM product ORDER BY id DESC");
+                        $select_pro = mysqli_query($con, "SELECT * FROM product ORDER BY id");
                     } else {
                         $select_pro = mysqli_query($con, "SELECT * FROM product ORDER BY id DESC  LIMIT 8");
                     };
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href="<?= $product['links-item'] ?>"><i class="fa fa-eye text-primary me-2"></i><?= $product['description'] ?></a>
+                                        <a class="text-body" href="product.php?id=<?= $product['id'] ?>&cat=<?= $product['category'] ?>"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
                                         <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
@@ -73,18 +73,21 @@
 
                     <?php
                     };
-                    ?>
-                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="products.php">Browse More Products </a>
-                    </div>
+                    if (basename($_SERVER['PHP_SELF']) == "index.php") { ?>
+                        <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+                            <a class="btn btn-primary rounded-pill py-3 px-5" href="products.php">Browse More Products </a>
+                        </div><?php }; ?>
                 </div>
             </div>
             <div id="tab-2" class="tab-pane fade show p-0 ">
 
                 <div class="row g-4">
                     <?php
-                    $select_pro = mysqli_query($con, "SELECT * FROM product WHERE category= 3 LIMIT 8");
-
+                    if (basename($_SERVER['PHP_SELF']) == "products.php") {
+                        $select_pro = mysqli_query($con, "SELECT * FROM product  WHERE category= 3 ORDER BY id");
+                    } else {
+                        $select_pro = mysqli_query($con, "SELECT * FROM product  WHERE category= 3 ORDER BY id DESC  LIMIT 8");
+                    };
                     while ($product = mysqli_fetch_array($select_pro)) {
 
                     ?>
@@ -102,7 +105,7 @@
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href="<?= $product['links-item'] ?>"><i class="fa fa-eye text-primary me-2"></i><?= $product['description'] ?></a>
+                                        <a class="text-body" href="product.php?id='<?= $product['id'] ?>&cat=<?= $product['category'] ?>'"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
                                         <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
@@ -113,17 +116,21 @@
 
                     <?php
                     };
-                    ?>
-                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="products.php">Browse More Products</a>
-                    </div>
+                    if (basename($_SERVER['PHP_SELF']) == "index.php") { ?>
+                        <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+                            <a class="btn btn-primary rounded-pill py-3 px-5" href="products.php">Browse More Products </a>
+                        </div><?php };
+                                ?>
                 </div>
             </div>
             <div id="tab-3" class="tab-pane fade show p-0">
                 <div class="row g-4">
                     <?php
-                    $select_pro = mysqli_query($con, "SELECT * FROM product WHERE category= 4 LIMIT 8");
-
+                    if (basename($_SERVER['PHP_SELF']) == "products.php") {
+                        $select_pro = mysqli_query($con, "SELECT * FROM product  WHERE category= 4 ORDER BY id");
+                    } else {
+                        $select_pro = mysqli_query($con, "SELECT * FROM product  WHERE category= 4 ORDER BY id DESC  LIMIT 8");
+                    };
                     while ($product = mysqli_fetch_array($select_pro)) {
 
                     ?>
@@ -141,7 +148,7 @@
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href="<?= $product['links-item'] ?>"><i class="fa fa-eye text-primary me-2"></i><?= $product['description'] ?></a>
+                                        <a class="text-body" href="product.php?id='<?= $product['id'] ?>&cat=<?= $product['category'] ?>'"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
                                         <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
@@ -152,20 +159,26 @@
 
                     <?php
                     };
-                    ?>
-                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="products.php">Browse More Products</a>
-                    </div>
+                    if (basename($_SERVER['PHP_SELF']) == "index.php") { ?>
+                        <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+                            <a class="btn btn-primary rounded-pill py-3 px-5" href="products.php">Browse More Products </a>
+                        </div><?php };
+                                ?>
+
                 </div>
             </div>
             <div id="tab-4" class="tab-pane fade show p-0">
                 <div class="row g-4">
                     <?php
-                    $select_pro = mysqli_query($con, "SELECT * FROM product WHERE category= 5 LIMIT 8");
-
+                    if (basename($_SERVER['PHP_SELF']) == "products.php") {
+                        $select_pro = mysqli_query($con, "SELECT * FROM product  WHERE category= 5 ORDER BY id");
+                    } else {
+                        $select_pro = mysqli_query($con, "SELECT * FROM product  WHERE category= 5 ORDER BY id DESC  LIMIT 8");
+                    };
                     while ($product = mysqli_fetch_array($select_pro)) {
 
                     ?>
+
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
@@ -180,7 +193,7 @@
                                 </div>
                                 <div class="d-flex border-top">
                                     <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href="<?= $product['links-item'] ?>"><i class="fa fa-eye text-primary me-2"></i><?= $product['description'] ?></a>
+                                        <a class="text-body" href="product.php?id='<?= $product['id'] ?>&cat=<?= $product['category'] ?>'"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
                                         <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
@@ -191,10 +204,12 @@
 
                     <?php
                     };
-                    ?>
-                    <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="btn btn-primary rounded-pill py-3 px-5" href="products.php">Browse More Products</a>
-                    </div>
+                    if (basename($_SERVER['PHP_SELF']) == "index.php") { ?>
+                        <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+                            <a class="btn btn-primary rounded-pill py-3 px-5" href="products.php">Browse More Products </a>
+                        </div><?php };
+                                ?>
+
                 </div>
             </div>
 
