@@ -46,7 +46,7 @@ include("inc/head.php");
                                     <div class="d-flex border-top">
 
                                         <small class="w-100 text-center py-2">
-                                            <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                            <a class="text-body" href="cart.php?id=<?= $product['id'] ?>"><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
                                         </small>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@ include("inc/head.php");
                                             <a class="text-body" href="product.php?id=<?= $category['id'] ?>&cat=<?= $category['category'] ?>"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
                                         </small>
                                         <small class="w-50 text-center py-2">
-                                            <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                            <a class="text-body" href="cart.php?id=<?= $category['id'] ?>"><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
                                         </small>
                                     </div>
                                 </div>

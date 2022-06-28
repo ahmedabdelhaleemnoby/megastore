@@ -65,7 +65,7 @@
                                         <a class="text-body" href="product.php?id=<?= $product['id'] ?>&cat=<?= $product['category'] ?>"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                        <a class="text-body" href="cart.php?id=<?= $product['id'] ?>"><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                                         <a class="text-body" href="product.php?id='<?= $product['id'] ?>&cat=<?= $product['category'] ?>'"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                        <a class="text-body" href="cart.php?id=<?= $product['id'] ?>"><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@
                                         <a class="text-body" href="product.php?id='<?= $product['id'] ?>&cat=<?= $product['category'] ?>'"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                        <a class="text-body" href="cart.php?id=<?= $product['id'] ?>"><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
                                     </small>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@
                                         <a class="text-body" href="product.php?id='<?= $product['id'] ?>&cat=<?= $product['category'] ?>'"><i class="fa fa-eye text-primary me-2"></i>View detail</a>
                                     </small>
                                     <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
+                                        <a class="text-body" href="cart.php?id=<?= $product['id'] ?>"><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
                                     </small>
                                 </div>
                             </div>
